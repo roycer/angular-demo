@@ -1,0 +1,45 @@
+<section class="card">
+    <div class="card-header">
+        <h3 class="text-black"><strong>Usuarios</strong></h3>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-lg-3">        
+                    
+                <app-form-user-register
+                    (user) = "onRegister($event)"
+                >
+                </app-form-user-register>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-7">
+                <app-table-user
+                    [users] = "api_users"
+                    (update) = "onUpdate($event)"
+                    (delete) = "onDelete($event)"
+                ></app-table-user>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade modal-size-medium" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby=""
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Editar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-content">          
+                <app-form-user-update
+                    [user] = "user_update"
+                    (user_update) = "onUpdate2($event)"
+                ></app-form-user-update>
+            </div>
+        </div>
+    </div>
+</div>
