@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Servidores } from 'src/app/services/servidores';
 
 @Injectable()
 export class UserService {
 
     private url = '/users';
 
-    constructor(private http: HttpClient, private servidores: Servidores) {
-        this.url = this.servidores.SEC + this.url;
+    constructor(private http: HttpClient) {
+        //this.url = this.servidores.SEC + this.url;
+        this.url = 'assets/data-user.json';
     }
 
     all() {
